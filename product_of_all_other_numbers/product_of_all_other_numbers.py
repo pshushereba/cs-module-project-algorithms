@@ -2,10 +2,15 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def product_of_all_other_numbers(arr):
-    # Your code here
 
-    pass
+from math import prod
+
+def product_of_all_other_numbers(arr):
+    products = [0] * len(arr)
+
+    for i in range(0, len(arr)):
+        products[i] = prod(arr[:i] + arr[i+1:])
+    return products
 
 
 if __name__ == '__main__':
@@ -14,3 +19,16 @@ if __name__ == '__main__':
     arr = [2, 6, 9, 8, 2, 2, 9, 10, 7, 4, 7, 1, 9, 5, 9, 1, 8, 1, 8, 6, 2, 6, 4, 8, 9, 5, 4, 9, 10, 3, 9, 1, 9, 2, 6, 8, 5, 5, 4, 7, 7, 5, 8, 1, 6, 5, 1, 7, 7, 8]
 
     print(f"Output of product_of_all_other_numbers: {product_of_all_other_numbers(arr)}")
+
+# U - Understand
+# input is a list of numbers.
+# need to return a multiplied list of numbers.
+
+# P - Plan
+# iterate through the array.
+# find a way to easily multiply all of the numbers.
+# https://www.geeksforgeeks.org/python-multiply-numbers-list-3-different-ways/
+# skip current index when iterating. splice arr?
+
+# E - Execute
+# 
